@@ -64,10 +64,11 @@ a {
   display: flex;
   align-items: center;
   background:
-    linear-gradient(90deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.8) 42%, rgba(0,0,0,0.2) 100%),
+    linear-gradient(90deg, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.78) 38%, rgba(0,0,0,0.15) 100%),
     url("assets/images/director-chair.png");
   background-size: cover;
-  background-position: center right;
+  background-position: right -180px center;
+  background-repeat: no-repeat;
   border-bottom: 1px solid rgba(207, 160, 65, 0.35);
 }
 
@@ -192,16 +193,15 @@ a {
 .info-grid {
   display: grid;
   grid-template-columns: 1fr 1.4fr 1fr;
+  align-items: stretch;
   border-top: 1px solid rgba(207, 160, 65, 0.4);
   border-bottom: 1px solid rgba(207, 160, 65, 0.4);
-  align-items: stretch;
 }
 
 .info-box {
   padding: 34px 6%;
   background: #080808;
   border-right: 1px solid rgba(207, 160, 65, 0.35);
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
