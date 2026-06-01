@@ -63,12 +63,22 @@ a {
   padding: 7% 6%;
   display: flex;
   align-items: center;
+
   background:
-    linear-gradient(90deg, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.78) 38%, rgba(0,0,0,0.15) 100%),
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,0.98) 0%,
+      rgba(0,0,0,0.82) 35%,
+      rgba(0,0,0,0.18) 100%
+    ),
     url("assets/images/director-chair.png");
+
   background-size: cover;
-  background-position: right -180px center;
   background-repeat: no-repeat;
+
+  /* CHAIR POSITION */
+  background-position: right -320px center;
+
   border-bottom: 1px solid rgba(207, 160, 65, 0.35);
 }
 
