@@ -58,6 +58,15 @@ a {
   margin-left: 8px;
 }
 
+.lang span {
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.lang span:hover {
+  color: #d5a742;
+}
+
 .hero {
   min-height: 560px;
   padding: 7% 6%;
