@@ -1,9 +1,13 @@
-const toggle = document.querySelector('.menu-toggle');
-const nav = document.querySelector('.nav');
-toggle.addEventListener('click', () => nav.classList.toggle('open'));
-document.querySelectorAll('.nav a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
-document.getElementById('year').textContent = new Date().getFullYear();
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-}, { threshold: .12 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  link.addEventListener("click", function (e) {
+    const target = document.querySelector(this.getAttribute("href"));
+
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+  });
+});
