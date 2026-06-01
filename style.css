@@ -443,5 +443,80 @@ a {
     font-size: 13px;
     line-height: 1.5;
   }
+@media (max-width: 768px) {
+  .header {
+    height: auto;
+    padding: 22px 6%;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 18px;
+  }
+
+  .logo {
+    grid-column: 1;
+  }
+
+  .lang {
+    grid-column: 2;
+    align-self: center;
+    font-size: 18px;
+    white-space: nowrap;
+  }
+
+  .nav {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 18px;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 8px;
+    scrollbar-width: none;
+  }
+
+  .nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav a {
+    flex: 0 0 auto;
+    font-size: 13px;
+  }
+
+  .hero {
+    padding: 42px 6% 64px;
+    background-position: 63% center;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+    line-height: 1.08;
+    letter-spacing: 6px;
+  }
+
+  .hero-text {
+    font-size: 22px;
+    line-height: 1.45;
+  }
 }
+
+@media (max-width: 430px) {
+  .logo span {
+    font-size: 40px;
+    letter-spacing: 10px;
+  }
+
+  .logo small {
+    font-size: 13px;
+    letter-spacing: 7px;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+    letter-spacing: 5px;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    line-height: 1.5;
+  }
 }
