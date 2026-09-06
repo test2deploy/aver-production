@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: #050505;
   color: #f4f1eb;
@@ -16,11 +20,12 @@ a {
 }
 
 .header {
-  height: 72px;
+  min-height: 72px;
   padding: 0 6%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
   background: #030303;
   border-bottom: 1px solid rgba(207, 160, 65, 0.25);
   position: sticky;
@@ -42,29 +47,41 @@ a {
 
 .nav {
   display: flex;
-  gap: 34px;
-  font-size: 13px;
+  gap: 22px;
+  font-size: 12px;
   text-transform: uppercase;
   font-weight: bold;
+  white-space: nowrap;
+}
+
+.nav a,
+.lang span {
+  transition: 0.2s ease;
 }
 
 .nav a:hover,
-.lang {
+.lang span:hover,
+.lang span.active,
+.lang .divider {
   color: #d5a742;
+}
+
+.lang {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #d5a742;
+  font-size: 13px;
+  font-weight: bold;
 }
 
 .lang span {
   color: #aaa;
-  margin-left: 8px;
-}
-
-.lang span {
   cursor: pointer;
-  transition: 0.2s ease;
 }
 
-.lang span:hover {
-  color: #d5a742;
+.lang .divider {
+  cursor: default;
 }
 
 .hero {
@@ -72,22 +89,17 @@ a {
   padding: 7% 6%;
   display: flex;
   align-items: center;
-
   background:
     linear-gradient(
       90deg,
-      rgba(0,0,0,0.98) 0%,
-      rgba(0,0,0,0.82) 35%,
-      rgba(0,0,0,0.18) 100%
+      rgba(0, 0, 0, 0.98) 0%,
+      rgba(0, 0, 0, 0.82) 36%,
+      rgba(0, 0, 0, 0.18) 100%
     ),
     url("assets/images/director-chair.png");
-
   background-size: cover;
   background-repeat: no-repeat;
-
-  /* CHAIR POSITION */
   background-position: right -320px center;
-
   border-bottom: 1px solid rgba(207, 160, 65, 0.35);
 }
 
@@ -116,6 +128,7 @@ a {
   margin: 24px 0;
   font-size: 18px;
   line-height: 1.5;
+  color: #e7e1d6;
 }
 
 .buttons {
@@ -150,6 +163,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 24px;
   margin-bottom: 22px;
 }
 
@@ -178,7 +192,8 @@ a {
   transition: 0.25s ease;
 }
 
-.film-card:hover {
+.film-card:hover,
+.info-box:hover {
   transform: translateY(-6px);
   border-color: #d5a742;
 }
@@ -186,13 +201,9 @@ a {
 .film-card img {
   width: 100%;
   aspect-ratio: 2 / 3;
-
   object-fit: cover;
-
   object-position: top;
-
   display: block;
-
   background: #000;
 }
 
@@ -216,84 +227,92 @@ a {
 
 .info-grid {
   display: grid;
-  grid-template-columns: 1fr 1.5fr 1fr;
+  grid-template-columns: 0.95fr 1.15fr 1.15fr 0.95fr;
   align-items: stretch;
+  border-top: 1px solid rgba(207, 160, 65, 0.35);
+  border-bottom: 1px solid rgba(207, 160, 65, 0.35);
 }
 
 .info-box {
   background: #050505;
   border-right: 1px solid rgba(207, 160, 65, 0.35);
-
-  padding: 42px;
-
+  padding: 38px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
-  min-height: 460px;
+  min-height: 560px;
+  transition: 0.25s ease;
 }
 
-.director {
-  display: grid;
-  grid-template-columns: 1fr 260px;
-  gap: 34px;
-  align-items: center;
+.info-box:last-child {
+  border-right: none;
 }
 
-.director img {
+.info-box h2 {
+  margin-bottom: 18px;
+  font-size: 25px;
+}
+
+.info-box h4 {
+  color: #d5a742;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 13px;
+}
+
+.info-box p {
+  line-height: 1.7;
+  color: #ddd;
+  font-size: 15px;
+}
+
+.person-card {
+  gap: 24px;
+}
+
+.person-card img {
   width: 100%;
-  height: 320px;
+  height: 300px;
   object-fit: cover;
+  object-position: top center;
+  display: block;
+  border: 1px solid rgba(207, 160, 65, 0.42);
+  background: #000;
+  filter: saturate(0.92) contrast(1.05);
 }
 
-.director-text {
-  height: 100%;
+.producer-card img {
+  object-position: center top;
+}
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.person-copy {
+  flex: 1;
 }
 
 .awards {
   text-align: center;
 }
 
-.info-box h2 {
-  margin-bottom: 18px;
-}
-
-.info-box h4 {
+.awards h3 {
   color: #d5a742;
-  margin-bottom: 22px;
-}
-
-.info-box p {
-  line-height: 1.7;
-  color: #ddd;
+  margin-bottom: 14px;
 }
 
 .small-btn {
   display: inline-block;
-
   margin-top: 26px;
-
   padding: 14px 24px;
-
   border: 1px solid #d5a742;
-
   color: #d5a742;
-
   text-transform: uppercase;
-
   font-size: 12px;
-
   font-weight: bold;
-
   width: fit-content;
 }
 
 .cta {
-  padding: 22px 6%;
+  padding: 26px 6%;
   background: linear-gradient(90deg, #3b0503, #111);
   display: flex;
   align-items: center;
@@ -322,64 +341,38 @@ a {
   font-size: 13px;
 }
 
-@media (max-width: 768px) {
-
-  .film-card img {
-
-    object-fit: contain;
-
-    height: auto;
-
-    max-height: 420px;
-
-    background: #000;
+@media (max-width: 1180px) {
+  .header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    padding: 18px 6%;
   }
 
-  .hero {
-    background-position: center;
+  .nav {
+    grid-column: 1 / -1;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scrollbar-width: none;
+  }
+
+  .nav::-webkit-scrollbar {
+    display: none;
   }
 
   .info-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 
-  .director {
-    grid-template-columns: 1fr;
+  .info-box {
+    border-bottom: 1px solid rgba(207, 160, 65, 0.35);
   }
 
-  .cta,
-  .footer {
-    flex-direction: column;
-    text-align: center;
+  .info-box:nth-child(2n) {
+    border-right: none;
   }
-  .lang {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.lang span {
-  cursor: pointer;
-  transition: 0.2s ease;
-}
-
-.lang span:hover,
-.lang span.active {
-  color: #d5a742;
-}
-
-.lang .divider {
-  color: #d5a742;
-  cursor: default;
 }
 
 @media (max-width: 768px) {
-  .header {
-    height: auto;
-    padding: 18px 6%;
-    gap: 14px;
-  }
-
   .logo span {
     font-size: 34px;
     letter-spacing: 9px;
@@ -391,8 +384,8 @@ a {
   }
 
   .lang {
-    font-size: 22px;
-    margin-left: auto;
+    font-size: 18px;
+    white-space: nowrap;
   }
 
   .hero {
@@ -406,20 +399,23 @@ a {
   }
 
   .hero h1 {
-    font-size: 48px;
+    font-size: 42px;
     line-height: 1.08;
-    letter-spacing: 7px;
+    letter-spacing: 6px;
   }
 
   .hero-text {
-    font-size: 25px;
+    font-size: 22px;
     line-height: 1.45;
     max-width: 100%;
   }
 
-  .buttons {
+  .buttons,
+  .cta,
+  .footer,
+  .section-header {
     flex-direction: column;
-    gap: 16px;
+    align-items: flex-start;
   }
 
   .btn {
@@ -427,92 +423,58 @@ a {
     text-align: center;
     padding: 18px 24px;
   }
-}
 
-@media (max-width: 430px) {
-  .hero h1 {
-    font-size: 42px;
-    letter-spacing: 6px;
-  }
-
-  .hero-text {
-    font-size: 22px;
-  }
-
-  .eyebrow {
-    font-size: 13px;
-    line-height: 1.5;
-  }
-@media (max-width: 768px) {
-  .header {
+  .film-card img {
+    object-fit: contain;
     height: auto;
-    padding: 22px 6%;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 18px;
+    max-height: 420px;
+    background: #000;
   }
 
-  .logo {
-    grid-column: 1;
+  .info-grid {
+    grid-template-columns: 1fr;
   }
 
-  .lang {
-    grid-column: 2;
-    align-self: center;
-    font-size: 18px;
-    white-space: nowrap;
+  .info-box,
+  .info-box:nth-child(2n) {
+    border-right: none;
   }
 
-  .nav {
-    grid-column: 1 / -1;
-    display: flex;
-    gap: 18px;
-    overflow-x: auto;
-    white-space: nowrap;
-    padding-bottom: 8px;
-    scrollbar-width: none;
+  .info-box {
+    min-height: auto;
+    padding: 34px 6%;
   }
 
-  .nav::-webkit-scrollbar {
-    display: none;
+  .person-card img {
+    height: auto;
+    max-height: 460px;
+    object-fit: contain;
   }
 
-  .nav a {
-    flex: 0 0 auto;
-    font-size: 13px;
-  }
-
-  .hero {
-    padding: 42px 6% 64px;
-    background-position: 63% center;
-  }
-
-  .hero h1 {
-    font-size: 42px;
-    line-height: 1.08;
-    letter-spacing: 6px;
-  }
-
-  .hero-text {
-    font-size: 22px;
-    line-height: 1.45;
+  .cta,
+  .footer {
+    text-align: left;
   }
 }
 
 @media (max-width: 430px) {
   .logo span {
-    font-size: 40px;
-    letter-spacing: 10px;
+    font-size: 36px;
+    letter-spacing: 9px;
   }
 
   .logo small {
-    font-size: 13px;
-    letter-spacing: 7px;
+    font-size: 12px;
+    letter-spacing: 6px;
   }
 
   .hero h1 {
     font-size: 38px;
     letter-spacing: 5px;
+  }
+
+  .hero-text {
+    font-size: 20px;
   }
 
   .eyebrow {
