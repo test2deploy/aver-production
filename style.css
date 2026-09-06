@@ -275,11 +275,11 @@ a {
   width: 100%;
   height: 300px;
   object-fit: cover;
-  object-position: top center;
+  object-position: center center;
   display: block;
   border: 1px solid rgba(207, 160, 65, 0.42);
   background: #000;
-  filter: saturate(0.92) contrast(1.05);
+  filter: saturate(0.96) contrast(1.06);
 }
 
 .producer-card img {
@@ -449,6 +449,11 @@ a {
     height: auto;
     max-height: 460px;
     object-fit: contain;
+  }
+
+  .producer-card img {
+    width: min(100%, 360px);
+    margin: 0 auto;
   }
 
   .cta,
