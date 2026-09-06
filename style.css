@@ -283,7 +283,10 @@ a {
 }
 
 .producer-card img {
-  object-position: center top;
+  height: 420px;
+  object-fit: contain;
+  object-position: center center;
+  background: #050505;
 }
 
 .person-copy {
@@ -453,6 +456,7 @@ a {
 
   .producer-card img {
     width: min(100%, 360px);
+    max-height: 520px;
     margin: 0 auto;
   }
 
