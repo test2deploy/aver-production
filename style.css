@@ -271,22 +271,31 @@ a {
   gap: 24px;
 }
 
-.person-card img {
+.person-card img,
+.producer-card::before {
   width: 100%;
   height: 300px;
-  object-fit: cover;
-  object-position: center center;
   display: block;
   border: 1px solid rgba(207, 160, 65, 0.42);
-  background: #000;
+  background-color: #050505;
   filter: saturate(0.96) contrast(1.06);
 }
 
+.person-card img {
+  object-fit: cover;
+  object-position: center top;
+}
+
 .producer-card img {
-  height: 420px;
-  object-fit: contain;
-  object-position: center center;
-  background: #050505;
+  display: none;
+}
+
+.producer-card::before {
+  content: "";
+  background-image: url("assets/images/avni-mumcu-clean.jpg?v=3");
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .person-copy {
@@ -454,9 +463,9 @@ a {
     object-fit: contain;
   }
 
-  .producer-card img {
+  .producer-card::before {
     width: min(100%, 360px);
-    max-height: 520px;
+    height: 450px;
     margin: 0 auto;
   }
 
